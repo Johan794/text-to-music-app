@@ -11,5 +11,5 @@ app.use(express.urlencoded({ extended: true }));
 routes(app);
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on port ${port} in context path /api/v1`);
 });
