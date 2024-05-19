@@ -1,18 +1,19 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp, FirebaseApp } from "firebase/app";
-import { getAnalytics, Analytics } from "firebase/analytics";
-import dotenv from "dotenv";
-dotenv.config();
+import { initializeApp, FirebaseApp } from "firebase/app"
+import { getStorage, ref } from "firebase/storage"
+import { getAnalytics, Analytics } from "firebase/analytics"
+import dotenv from "dotenv"
+dotenv.config()
 
 // Define a type for the Firebase configuration object
 interface FirebaseConfig {
-  apiKey: string | undefined;
-  authDomain: string | undefined;
-  projectId: string | undefined;
-  storageBucket: string | undefined;
-  messagingSenderId: string | undefined;
-  appId: string | undefined;
-  measurementId: string | undefined;
+  apiKey: string | undefined
+  authDomain: string | undefined
+  projectId: string | undefined
+  storageBucket: string | undefined
+  messagingSenderId: string | undefined
+  appId: string | undefined
+  measurementId: string | undefined
 }
 
 // Your web app's Firebase configuration
@@ -24,9 +25,13 @@ const firebaseConfig: FirebaseConfig = {
   storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.FIREBASE_APP_ID,
-  measurementId: process.env.FIREBASE_MEASUREMENT_ID
-};
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
+}
 
 // Initialize Firebase
-const app: FirebaseApp = initializeApp(firebaseConfig);
-const analytics: Analytics = getAnalytics(app);
+const app: FirebaseApp = initializeApp(firebaseConfig)
+const storage = getStorage(app, "gs://" + process.env.FIREBASE_STORAGE_BUCKET)
+const storageRef = ref(storage, "audio")
+//const analytics: Analytics = getAnalytics(app)
+
+export { storage, storageRef }
