@@ -1,6 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp, FirebaseApp } from "firebase/app";
 import { getAnalytics, Analytics } from "firebase/analytics";
+import dotenv from "dotenv";
+dotenv.config();
 
 // Define a type for the Firebase configuration object
 interface FirebaseConfig {

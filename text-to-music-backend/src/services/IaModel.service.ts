@@ -1,6 +1,9 @@
 import {prompt} from '../types/promptType';
-const huggingFaceApiKey = process.env.HUGGING_FACE_API_KEY || null;
-const modelApi = process.env.HUGGING_FACE_MODEL_API || '';
+import dotenv from "dotenv";
+dotenv.config();
+
+const huggingFaceApiKey = process.env.HUGGINFACE_API_KEY || null;
+const modelApi = process.env.MODEL_API_URL || '';
 
 class IaModelService{
         
