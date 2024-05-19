@@ -1,0 +1,6 @@
+key_pair_name = "tf_key"
+file_name = "tf_key.pem"
+instance_type = "t2.micro"
+cidr_block = "172.16.0.0/16"
+availability_zone = "us-east-1a"
+aws_region = "us-east-1"

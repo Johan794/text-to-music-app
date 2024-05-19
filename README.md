@@ -1,5 +1,51 @@
 # Text to music project
 
+# Infrastructure setup
+
+## Requirements
+ - Terraform
+ - AWS CLI
+ - bash shell
+
+## Project structure
+
+## take a loook at the project structure 
+```
+text-to-music-infra/
+├── README.md
+├── deploy.sh
+├── docker-compose.yaml
+├── main.tf
+├── outputs.tf
+├── terraform.tfstate
+├── terraform.tfstate.backup
+├── terraform.tfvars
+└── variables.tf
+```
+
+Once you have the project structure, you can run the following command to deploy the infrastructure.
+
+## Deploy the infrastructure
+
+```bash 
+terraform init
+```
+
+```bash 
+terraform apply
+```
+
+## Run the application
+```bash 
+deploy.sh
+```
+
+## Get the public IP address of the EC2 instance
+```bash
+terraform output
+```
+and you will see the public IP address of the EC2 instance and will be able to access the application using the port 4200.
+
 # MusicGen Model Card
 
 ## Model details
