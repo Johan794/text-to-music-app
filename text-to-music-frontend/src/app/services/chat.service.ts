@@ -12,6 +12,6 @@ export class ChatService {
   constructor(private http: HttpClient) { }
 
   sendMessage(userMessage: string): Observable<{ audioUrl: string }>{
-    return this.http.post<{ audioUrl: string }>(this.url, { input: userMessage });
+    return this.http.post<{ audioUrl: string }>(this.url, { inputs: userMessage });
   }
 }

@@ -1,8 +1,17 @@
 <div class="chat-bot">
   <h1>Chat Bot</h1>
   <div class="chat-container">
-    <div *ngFor="let message of chatMessages" [ngClass]="message.role">
-      {{ message.content }}
+    <div *ngFor="let message of chatMessages.slice().reverse()" [ngClass]="message.role">
+      <div *ngIf="message.type == 'audio'" class="message-container">
+        <audio controls>
+          <source [src]="message.content" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+        <a href="{{ message.content }}" [download]="message.content">
+          Download
+        </a>
+      </div>
+      <p *ngIf="message.type != 'audio'">{{ message.content }}</p>
     </div>
   </div>
 
