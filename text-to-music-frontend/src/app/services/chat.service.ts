@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import 'dotenv/config'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
 
-  private readonly url: string = 'http://localhost:3000/api/v1/generate-audio';
+  private readonly url: string = 'http://localhost:3000/api/v1/generate-audio' || process.env['BACKEND_URL'];
 
   constructor(private http: HttpClient) { }
 
