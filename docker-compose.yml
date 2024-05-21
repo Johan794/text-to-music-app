@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  ttm_backend:
+    image: santiagoarevalov/ttm-backend:latest
+    container_name: ttm_backend_container
+    build: ./text-to-music-backend
+    ports: 
+      - "3000:3000"
+  ttm_frontend:
+    image: santiagoarevalov/ttm-frontend:latest
+    container_name: ttm_frontend_container
+    build: ./text-to-music-frontend
+    ports:
+      - "4000:4000"
+    links:
+      - ttm_backend
+    environment:
+      - BACKEND_URL=http://ttm_backend_container:3000/api/v1/generate-audio
