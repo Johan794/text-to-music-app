@@ -7,7 +7,7 @@ import {Observable} from "rxjs";
 })
 export class ChatService {
 
-  private readonly url: string = 'http://ec2-100-24-32-149.compute-1.amazonaws.com:3000/api/v1/generate-audio' || process.env['BACKEND_URL'];
+  private readonly url: string = 'http://ec2-100-24-32-149.compute-1.amazonaws.com:3000/api/v1/generate-audio';
 
   constructor(private http: HttpClient) { }
 
