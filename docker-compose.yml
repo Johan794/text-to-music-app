@@ -2,13 +2,13 @@ version: "3.8"
 
 services:
   ttm_backend:
-    image: santiagoarevalov/ttm-backend:latest
+    image: santiagoarevalov/ttm-backend:final
     container_name: ttm_backend_container
     build: ./text-to-music-backend
     ports: 
       - "3000:3000"
   ttm_frontend:
-    image: santiagoarevalov/ttm-frontend:latest
+    image: santiagoarevalov/ttm-frontend:final
     container_name: ttm_frontend_container
     build: ./text-to-music-frontend
     ports:
