@@ -103,25 +103,19 @@ body {
   flex-direction: column;
 }
 
-/* Individual message styles */
-.message {
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 5px;
-  max-width: 70%;
-}
-
 .user {
   background-color: #e2f2ff;
   align-self: flex-end;
-  padding: 0px 15px;
+  padding: 0 15px;
+  margin: 5px 0;
   border-radius: 10px;
 }
 
 .assistant {
   background-color: #f0f0f0;
   align-self: flex-start;
-  padding: 0px 15px;
+  padding: 0 15px;
+  margin: 5px 0;
   border-radius: 10px;
 }
 
