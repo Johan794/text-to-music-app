@@ -1,4 +1,23 @@
 # Text to music project
+# App's architecture
+![alt text](img/image.png)
+
+- The user sends a text input to the frontend.
+- The frontend sends the text input to the backend.
+- The backend sends the text input to the model.
+- The model generates a music sample based on the text input.
+- The backend sends the music sample to the frontend.
+- The frontend plays the music sample.
+
+## Technologies used
+- Angular (frontend)
+- Express.js (backend)
+- Docker (containerization)
+- Terraform (infrastructure as code)
+- AWS (cloud provider)
+- Facebook/MusicGen (model)
+- Firebase (Bucket storage for the model)
+
 
 # Infrastructure setup
 
@@ -44,8 +63,100 @@ deploy.sh
 ```bash
 terraform output
 ```
-and you will see the public IP address of the EC2 instance and will be able to access the application using the port 4200.
+and you will see the public IP address of the EC2 instance and will be able to access the application using the port 4000.
 
+# Frontend setup
+
+## Requirements
+ - Node.js
+ - Angular CLI
+## Project structure
+```
+text-to-music-frontend/
+├── Dockerfile
+├── README.md
+├── angular.json
+├── package-lock.json
+├── package.json
+├── server.ts
+├── src
+│   ├── app
+│   │   ├── app.component.css
+│   │   ├── app.component.html
+│   │   ├── app.component.ts
+│   │   ├── app.config.server.ts
+│   │   ├── app.config.ts
+│   │   ├── app.routes.ts
+│   │   ├── components
+│   │   │   └── chat
+│   │   │       ├── chat.component.css
+│   │   │       ├── chat.component.html
+│   │   │       └── chat.component.ts
+│   │   └── services
+│   │       └── chat.service.ts
+│   ├── assets
+│   │   └── send.svg
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── main.server.ts
+│   ├── main.ts
+│   └── styles.css
+├── tsconfig.app.json
+├── tsconfig.json
+└── tsconfig.spec.json
+```
+## Run the application
+```bash
+ng serve
+```
+and you will be able to access the application using the port 4000.
+
+# Backend setup
+## Requirements
+ - Node.js
+ - Express.js
+ - Firebase admin SDK
+
+## Project structure
+```
+text-to-music-backend/
+├── Dockerfile
+├── dist
+│   ├── config
+│   │   └── firebase.js
+│   ├── controller
+│   │   └── IaModel.controller.js
+│   ├── index.js
+│   ├── routes
+│   │   └── index.js
+│   ├── services
+│   │   ├── HuggingFace.js
+│   │   └── IaModel.service.js
+│   └── types
+│       └── promptType.js
+├── package-lock.json
+├── package.json
+├── src
+│   ├── config
+│   │   └── firebase.ts
+│   ├── controller
+│   │   └── IaModel.controller.ts
+│   ├── index.ts
+│   ├── routes
+│   │   └── index.ts
+│   ├── services
+│   │   ├── HuggingFace.ts
+│   │   └── IaModel.service.ts
+│   └── types
+│       └── promptType.ts
+├── tsconfig.json
+└── yarn.lock
+```
+## Run the application
+```bash
+npm run dev
+```
+and you will be able to access the application using the port 3000.
 # MusicGen Model Card
 
 ## Model details
