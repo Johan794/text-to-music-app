@@ -51,8 +51,8 @@ resource "aws_security_group" "security" {
     cidr_blocks = [
       "0.0.0.0/0"
     ]
-    from_port = 4200
-    to_port   = 4200
+    from_port = 4000
+    to_port   = 4000
     protocol  = "tcp"
   }
 
